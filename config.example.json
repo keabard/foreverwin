@@ -1,0 +1,21 @@
+{
+  "everwin" : {
+    "login" : "",
+    "password" : ""
+  },
+  "internet": {
+    "current" : "",
+    "numericable" : {
+      "login" : "",
+      "password" : ""
+    }
+  },
+  "phone": {
+    "current": "",
+    "bouygues" : {
+      "lastName" : "",
+      "login" : "",
+      "password" : ""
+    }
+  }
+}
