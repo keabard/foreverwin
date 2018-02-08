@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "internet": "node src/setup.js internet; testcafe -e \"firefox -profile ./firefox/session\" src/internet.js",
-    "phone": "node src/setup.js phone; testcafe -e \"firefox -profile ./firefox\" src/phone.js",
+    "phone": "node src/setup.js phone; testcafe -e \"firefox -profile ./firefox/session\" src/phone.js",
     "chrome-headless": "testcafe chrome:headless src/foreverwin.js",
     "docker": "docker run --privileged -v \"$(pwd)/src:/tests\" testcafe/testcafe \"chromium:headless\""
   },
