@@ -1,8 +1,11 @@
 var path = require('path');
+var mkdirp = require('mkdirp');
 var fs = require('fs');
 var replace = require('replace-in-file');
 
 var DIRECTORIES = require('./variables');
+
+mkdirp.sync(DIRECTORIES.firefox.session);
 
 ['handlers.json', 'prefs.js'].map(filename => fs.copyFileSync(path.join(DIRECTORIES.firefox.config, filename), path.join(DIRECTORIES.firefox.session, filename)));
 
