@@ -28,7 +28,7 @@ const getNumericableInternet = async () => {
     .wait(5000);
 
   t.fixtureCtx.numericable = {
-    price : parseFloat(billPrice.replace(',', '.').replace('€', '')),
+    price : parseFloat(billPrice.replace(',', '.').replace('€', '')).toFixed(2),
     billFilePath : path.join(DIRECTORIES.downloads.internet, fs.readdirSync(DIRECTORIES.downloads.internet)[0])
   };
 };

@@ -1,6 +1,12 @@
+import fs from 'fs';
+import path from 'path';
 import { Selector, t } from 'testcafe';
 
+import DIRECTORIES from '../variables';
+
 import config from '../../config.json';
+
+const MOBILE_PHONE_REGEX = new RegExp(/^ *06.*$/)
 
 const getBouyguesTelephone = async () => {
 
@@ -21,15 +27,19 @@ const getBouyguesTelephone = async () => {
     .click(Selector('input#bt_valider'))
 
   await Selector('div#dashboardTop')();
-
   await t
-    .navigateTo('https://www.bouyguestelecom.fr/mon-compte/mes-factures')
+    .navigateTo('https://www.bouyguestelecom.fr/mon-compte/mes-factures');
+
+  const mobileFactureSection = Selector('div.lineAndOffer').withText(MOBILE_PHONE_REGEX).parent('section.factureSection');
+  const billPrice = await mobileFactureSection.find('div.factureTotal').textContent;
+
+  await t  
     .click(Selector('a').withText('Télécharger'))
     .wait(5000);
 
-  t.fixtureCtx.numericable = {
-    price : 'coucou',
-    billFilePath : 'coucou2'
+  t.fixtureCtx.bouygues = {
+    price : parseFloat(billPrice.trim().replace('€', '.')).toFixed(2),
+    billFilePath : path.join(DIRECTORIES.downloads.phone, fs.readdirSync(DIRECTORIES.downloads.phone)[0])
   };
 };
 
