@@ -1,12 +1,16 @@
 import config from '../config.json';
 
 import enterEverwinBill from './everwin';
+import getBouyguesInternet from './internet/bouygues';
 import getNumericableInternet from './internet/numericable';
+import getOrangeInternet from './internet/orange';
 
 fixture('Rentrer ma facture internet dans Everwin');
 
 const internetScripts = {
-  numericable : getNumericableInternet
+  bouygues : getBouyguesInternet,
+  numericable : getNumericableInternet,
+  orange : getOrangeInternet
 };
 
 test('Just do it', async t => {
