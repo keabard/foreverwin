@@ -1,6 +1,6 @@
 import config from '../config.json';
 
-import enterEverwinBill from './everwin';
+import enterEverwinBill from './everwin/createBill';
 import getBouyguesInternet from './internet/bouygues';
 import getNumericableInternet from './internet/numericable';
 import getOrangeInternet from './internet/orange';

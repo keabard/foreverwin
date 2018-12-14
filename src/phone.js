@@ -1,6 +1,6 @@
 import config from '../config.json';
 
-import enterEverwinBill from './everwin';
+import enterEverwinBill from './everwin/createBill';
 import getBouyguesPhone from './phone/bouygues';
 
 fixture('Rentrer ma facture téléphone dans Everwin');
