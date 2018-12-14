@@ -12,6 +12,8 @@ You must have Google Chrome installed on your computer
 # How to
 ## Run it
 
+### /!\ The script may take a few minutes depending on the number of pages it has to parse /!\
+
 To see the magic : 
 
 ```npm run timesheets```
@@ -22,7 +24,7 @@ To run headlessly :
 
 The output file will be generated in `./retardataires2018.csv`
 
-/!\ It may take a few minutes depending on the number of pages it has to parse /!\
+
 
 ## Change it
 
