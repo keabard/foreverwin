@@ -4,20 +4,14 @@ export const writeCSV = (path, records) => {
   const csvWriter = createObjectCsvWriter({
       path,
       header: [
-          {id: 'xebian', title: 'Xebian'},
-          {id: 'weekStartDate', title: 'Date de debut de feuille'},
-          {id: 'validationStep', title: 'Statut de validation'}
+          {id: 'xebian', title: 'Xebian'}
       ]
   });
 
   const orderedRecords = sortObjectByKeys(records);
   const newRecords = [];
   for (const xebian in orderedRecords) {
-    orderedRecords[xebian].map(
-      ({weekStartDate, validationStep}) => {
-        newRecords.push({xebian, weekStartDate, validationStep})
-      }
-    );
+    newRecords.push({xebian})
   }
   return csvWriter.writeRecords(newRecords);
 }
