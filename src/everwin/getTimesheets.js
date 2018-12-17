@@ -29,12 +29,15 @@ const getTimesheets = async (maxDate) => {
       const row = await timesheetRows.nth(i).innerText;
       const weekStartDate = row.split('\n')[1];
       const name = row.split('\n')[2];
+      const partialValidation = row.split('\n')[4];
       const validationStep = row.split('\n')[5];
 
-      if (!(name in timesheetsByXebian)) {
-        timesheetsByXebian[name] = []
+      if (!(weekStartDate === '31/12/2018' && partialValidation === 'Oui')) {
+        if (!(name in timesheetsByXebian)) {
+          timesheetsByXebian[name] = []
+        }
+        timesheetsByXebian[name].push({weekStartDate, validationStep})
       }
-      timesheetsByXebian[name].push({weekStartDate, validationStep})
     }
 
     if(await Selector('button.x-tbar-page-next').parent('table.x-item-disabled').exists) {
