@@ -32,7 +32,7 @@ const getTimesheets = async (maxDate) => {
       const partialValidation = row.split('\n')[4];
       const validationStep = row.split('\n')[5];
 
-      if (!(weekStartDate === '31/12/2018' && partialValidation === 'Oui')) {
+      if (!(weekStartDate === '31/12/2018' && partialValidation === 'Oui' && validationStep.trim() === '')) {
         if (!(name in timesheetsByXebian)) {
           timesheetsByXebian[name] = []
         }
